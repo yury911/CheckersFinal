@@ -2,14 +2,24 @@
 #include <iostream>
 #include <string>
 
-std::string Name1, Name2;
+int g, k;
+
+std::string horizontal[8] = {
+	"a","b","c","d","e","f","g","h"
+};
+
+int vertical[8] = {
+	1,2,3,4,5,6,7,8
+};
 
 class Figure {
 public:
 	Figure(std::string initalHorizontal, int initialVertical, std::string initialColor);
-	std::string GetColor();
-	std::string GetHorizontalCor();
-	int GetVerticalCor();
+	std::string GetColor() const;
+	std::string GetHorizontalCor() const;
+	int GetVerticalCor() const;
+	void MakeAMove();
+	void AvalibleMove();
 private:
 	std::string HorizontalCor;
 	int VerticalCor;
@@ -25,31 +35,22 @@ Figure::Figure(std::string initalHorizontal, int initialVertical, std::string in
 	Color = initialColor;
 };
 
-std::string Figure::GetColor() {
+std::string Figure::GetColor() const {
 	return Color;
 };
 
-std::string Figure::GetHorizontalCor() {
+std::string Figure::GetHorizontalCor() const {
 	return HorizontalCor;
 };
 
-int Figure::GetVerticalCor() {
+int Figure::GetVerticalCor() const {
 	return VerticalCor;
-};
-
-int g, k;
-std::string horizontal[8] = {
-	"a","b","c","d","e","f","g","h"
-};
-
-int vertical[8] = {
-	1,2,3,4,5,6,7,8
 };
 
 void initialWhiteFigure();
 void initialBlackFigure();
 
-
+std::string Name1, Name2;
 
 
 int main()
@@ -59,10 +60,16 @@ int main()
 	initialBlackFigure();
 
 
-	for (int k = 1; k < 25; k++) {
-		std::cout << k << '\t' << pFigure[k]->GetColor() << '\t' << pFigure[k]->GetHorizontalCor() << '\t' << pFigure[k]->GetVerticalCor() << '\n';
-	};
-
+    std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
 
 
 }
@@ -131,4 +138,204 @@ void initialBlackFigure() {
 			};
 		};
 	};
+};
+
+void Figure::AvalibleMove() {
+	int k;
+
+	for (int i = 0;i < 8;i++) {
+		if (horizontal[i] == HorizontalCor)
+			k = i;
+	};
+
+	if (Color == "White")
+	{
+		VerticalCor += 1;
+
+		if (k == 0)
+		{
+			k += 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k -= 1;
+		};
+
+		if (k == 7)
+		{
+			k -= 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k += 1;
+		};
+
+		if (k > 0 && k < 7)
+		{
+			k -= 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k += 2;
+			std::cout << "Second avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+		};
+	}
+	else
+	{
+		VerticalCor -= 1;
+
+		if (k == 0)
+		{
+			k += 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k -= 1;
+		};
+
+		if (k == 7)
+		{
+			k -= 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k += 1;
+		};
+
+		if (k > 0 && k < 7)
+		{
+			k -= 1;
+			std::cout << "First avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+			k += 2;
+			std::cout << "Second avalible move is " << VerticalCor << ' ' << horizontal[k] << '\n';
+		};
+	};
+
+};
+
+void Figure::MakeAMove() {
+	bool exit = false;
+	std::string AvailFirstHorCor, AvailSecondHorCor;
+	int AvailFirstVerCor, AvailSecondVerCor;
+
+	int k, l = 0, Operation;
+
+	for (int i = 0;i < 8;i++) {
+		if (horizontal[i] == HorizontalCor)
+			k = i;
+	};
+
+	if (Color == "White")
+	{
+		VerticalCor += 1;
+
+		if (k == 0)
+		{
+			k += 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k -= 1;
+			l += 1;
+		};
+
+		if (k == 7)
+		{
+			k -= 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k += 1;
+			l += 1;
+		};
+
+		if (k > 0 && k < 7)
+		{
+			k -= 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k += 2;
+			AvailSecondVerCor = VerticalCor;
+			AvailSecondHorCor = horizontal[k];
+			l += 2;
+		};
+	}
+	else
+	{
+		VerticalCor -= 1;
+
+		if (k == 0)
+		{
+			k += 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k -= 1;
+			l += 1;
+		};
+
+		if (k == 7)
+		{
+			k -= 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k += 1;
+			l += 1;
+		};
+
+		if (k > 0 && k < 7)
+		{
+			k -= 1;
+			AvailFirstVerCor = VerticalCor;
+			AvailFirstHorCor = horizontal[k];
+			k += 2;
+			AvailSecondVerCor = VerticalCor;
+			AvailSecondHorCor = horizontal[k];
+			l += 2;
+		};
+	};
+
+
+	if (l == 1)
+	{
+		std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << '\n';
+		std::cin >> Operation;
+
+		while (exit == false) {
+			switch (Operation)
+			{
+			case 1:
+			{
+				HorizontalCor = AvailFirstHorCor;
+				VerticalCor = AvailFirstVerCor;
+				exit = true;
+				break;
+			}
+			default:
+				std::cerr << "error\n";
+				std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << '\n';
+				std::cin >> Operation;
+				exit = false;
+			}
+		}
+	};
+
+	if (l == 2)
+	{
+		std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << " 2) " << AvailSecondVerCor << AvailSecondHorCor << '\n';
+		std::cin >> Operation;
+
+		while (exit == false) {
+			switch (Operation)
+			{
+			case 1:
+			{
+				HorizontalCor = AvailFirstHorCor;
+				VerticalCor = AvailFirstVerCor;
+				exit = true;
+				break;
+			}
+			case 2:
+			{
+				HorizontalCor = AvailSecondHorCor;
+				VerticalCor = AvailSecondVerCor;
+				exit = true;
+				break;
+			}
+			default:
+				std::cerr << "error\n";
+				std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << " 2) " << AvailSecondVerCor << AvailSecondHorCor << '\n';
+				std::cin >> Operation;
+				exit = false;
+			}
+		}
+	};
+
 };
