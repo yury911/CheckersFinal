@@ -20,6 +20,7 @@ public:
 	int GetVerticalCor() const;
 	void MakeAMove();
 	void AvalibleMove();
+	bool IsThereFigure(std::string initalHor, int initialVer);
 private:
 	std::string HorizontalCor;
 	int VerticalCor;
@@ -60,17 +61,27 @@ int main()
 	initialBlackFigure();
 
 
-    std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
-	pFigure[11]->MakeAMove();
-	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
-	pFigure[11]->MakeAMove();
-	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
-	pFigure[11]->MakeAMove();
-	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
-	pFigure[11]->MakeAMove();
-	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
-	pFigure[11]->MakeAMove();
+	/*
+	for(int i = 1; i < 25; i++) {
+		if (pFigure[i]->IsThereFigure("c", 3))
+			std::cout << "Yes!" << '\n';
+	}
+	*/
 
+//	std::cout << pFigure[11]->Check(4,"e");
+
+	
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+	pFigure[11]->MakeAMove();
+	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+//	pFigure[11]->MakeAMove();
+//	std::cout << 11 << ' ' << pFigure[11]->GetColor() << ' ' << pFigure[11]->GetVerticalCor() << pFigure[11]->GetHorizontalCor() << '\n';
+//	pFigure[11]->MakeAMove();
+	
 
 }
 
@@ -206,7 +217,7 @@ void Figure::AvalibleMove() {
 void Figure::MakeAMove() {
 	bool exit = false;
 	std::string AvailFirstHorCor, AvailSecondHorCor;
-	int AvailFirstVerCor, AvailSecondVerCor;
+	int AvailFirstVerCor, AvailSecondVerCor, IntermediateVer;
 
 	int k, l = 0, Operation;
 
@@ -215,47 +226,52 @@ void Figure::MakeAMove() {
 			k = i;
 	};
 
+
 	if (Color == "White")
 	{
-		VerticalCor += 1;
+		IntermediateVer = VerticalCor + 1;
 
 		if (k == 0)
 		{
 			k += 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k -= 1;
 			l += 1;
+
 		};
 
 		if (k == 7)
 		{
 			k -= 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k += 1;
 			l += 1;
+
 		};
 
 		if (k > 0 && k < 7)
 		{
 			k -= 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k += 2;
-			AvailSecondVerCor = VerticalCor;
+			AvailSecondVerCor = IntermediateVer;
 			AvailSecondHorCor = horizontal[k];
 			l += 2;
+
+
 		};
 	}
 	else
 	{
-		VerticalCor -= 1;
+		IntermediateVer = VerticalCor - 1;
 
 		if (k == 0)
 		{
 			k += 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k -= 1;
 			l += 1;
@@ -264,7 +280,7 @@ void Figure::MakeAMove() {
 		if (k == 7)
 		{
 			k -= 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k += 1;
 			l += 1;
@@ -273,28 +289,43 @@ void Figure::MakeAMove() {
 		if (k > 0 && k < 7)
 		{
 			k -= 1;
-			AvailFirstVerCor = VerticalCor;
+			AvailFirstVerCor = IntermediateVer;
 			AvailFirstHorCor = horizontal[k];
 			k += 2;
-			AvailSecondVerCor = VerticalCor;
+			AvailSecondVerCor = IntermediateVer;
 			AvailSecondHorCor = horizontal[k];
 			l += 2;
 		};
 	};
 
+	
 
 	if (l == 1)
 	{
 		std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << '\n';
 		std::cin >> Operation;
+		int m = 0;
 
 		while (exit == false) {
 			switch (Operation)
 			{
 			case 1:
 			{
-				HorizontalCor = AvailFirstHorCor;
-				VerticalCor = AvailFirstVerCor;
+				for (int i = 1; i < 25; i++) {
+					if (pFigure[i]->IsThereFigure(AvailFirstHorCor, AvailFirstVerCor))
+						m+=1;
+				};
+
+				if (m == 0) {
+					HorizontalCor = AvailFirstHorCor;
+					VerticalCor = AvailFirstVerCor;
+					std::cout << "Successful move!" << '\n';
+				}
+				else
+				{
+					std::cout << "Unccessful move. Place occupied!" << '\n';
+				};
+
 				exit = true;
 				break;
 			}
@@ -311,21 +342,52 @@ void Figure::MakeAMove() {
 	{
 		std::cout << "Choose a move: 1) " << AvailFirstVerCor << AvailFirstHorCor << " 2) " << AvailSecondVerCor << AvailSecondHorCor << '\n';
 		std::cin >> Operation;
+		int m = 0;
 
 		while (exit == false) {
 			switch (Operation)
 			{
 			case 1:
 			{
-				HorizontalCor = AvailFirstHorCor;
-				VerticalCor = AvailFirstVerCor;
+
+				for (int i = 1; i < 25; i++) {
+					if (pFigure[i]->IsThereFigure(AvailFirstHorCor, AvailFirstVerCor))
+						m += 1;
+				};
+
+
+				if (m == 0) {
+					HorizontalCor = AvailFirstHorCor;
+					VerticalCor = AvailFirstVerCor;
+					std::cout << "Successful move!" << '\n';
+				}
+				else
+				{
+					std::cout << "Unccessful move. Place occupied!" << '\n';
+				};
+
 				exit = true;
 				break;
 			}
 			case 2:
 			{
-				HorizontalCor = AvailSecondHorCor;
-				VerticalCor = AvailSecondVerCor;
+
+				for (int i = 1; i < 25; i++) {
+					if (pFigure[i]->IsThereFigure(AvailSecondHorCor, AvailSecondVerCor))
+						m += 1;
+				};
+
+				if (m == 0) {
+					HorizontalCor = AvailSecondHorCor;
+					VerticalCor = AvailSecondVerCor;
+					std::cout << "Successful move!" << '\n';
+				}
+				else
+				{
+					std::cout << "Unccessful move. Place occupied!" << '\n';
+				};
+
+
 				exit = true;
 				break;
 			}
@@ -338,4 +400,8 @@ void Figure::MakeAMove() {
 		}
 	};
 
+};
+
+bool Figure::IsThereFigure(std::string initalHor, int initialVer) {
+	return this->VerticalCor == initialVer && this->HorizontalCor == initalHor;
 };
