@@ -135,6 +135,196 @@ void Checker::MoveChecker() {
 
 		if (HCoordinate != "a" && HCoordinate != "h") {
 
+			
+			if (HCoordinate == "b") {
+				int temp, k = 0;
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() - 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+				k = 0;
+
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+
+				if (k != 0) {
+					if (pChecker[temp]->GetColor() != Color) {
+						int g = 0;
+						for (int i = 1; i < 25; i++) {
+
+							if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 2], VCoordinate + 2))
+							{
+								g += 1;
+							};
+
+							if (g == 0) {
+								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+								VerArray.push_back(VCoordinate + 2);
+							};
+
+						};
+					};
+				}
+
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+
+			}
+
+
+			if (HCoordinate == "g") {
+				int temp, k = 0;
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+				k = 0;
+
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() - 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+
+				if (k != 0) {
+					if (pChecker[temp]->GetColor() != Color) {
+						int g = 0;
+						for (int i = 1; i < 25; i++) {
+
+							if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() - 2], VCoordinate + 2))
+							{
+								g += 1;
+							};
+
+							if (g == 0) {
+								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+								VerArray.push_back(VCoordinate + 2);
+							};
+
+						};
+					};
+				}
+
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+
+			}
+
+
+			if (HCoordinate != "b" && HCoordinate != "g") {
+				int temp, k = 0;
+
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() - 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+
+				if (k != 0) {
+					if (pChecker[temp]->GetColor() != Color) {
+						int g = 0;
+						for (int i = 1; i < 25; i++) {
+
+							if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() - 2], VCoordinate + 2))
+							{
+								g += 1;
+							};
+
+							if (g == 0) {
+								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+								VerArray.push_back(VCoordinate + 2);
+							};
+
+						};
+					};
+				}
+
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+				k = 0;
+
+
+				for (int i = 1; i < 25; i++) {
+					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 1], VCoordinate + 1))
+					{
+						k += 1;
+						temp = i;
+					};
+				};
+
+
+				if (k != 0) {
+					if (pChecker[temp]->GetColor() != Color) {
+						int g = 0;
+						for (int i = 1; i < 25; i++) {
+
+							if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 2], VCoordinate + 2))
+							{
+								g += 1;
+							};
+
+							if (g == 0) {
+								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+								VerArray.push_back(VCoordinate + 2);
+							};
+
+						};
+					};
+				}
+
+
+				if (k == 0) {
+					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
+					VerArray.push_back(VCoordinate + 1);
+				}
+
+
+			}
+
+
+
 		};
 
 	};

@@ -1,3 +1,3 @@
 ﻿  Checkers.cpp
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(186): warning C4715: Checker::GetIndexHCor: значение возвращается не при всех путях выполнения
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(373): warning C4715: Checker::GetIndexHCor: значение возвращается не при всех путях выполнения
   Checkers.vcxproj -> C:\Users\Yurii Chernov\source\repos\CheckersFinal\CheckersFinal\Debug\Checkers.exe
