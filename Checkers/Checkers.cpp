@@ -606,15 +606,77 @@ void Checker::MoveChecker() {
 
 		if (HCoordinate == "a") {
 
+			if (VCoordinate == 2) {
+
+			}
+
+			if (VCoordinate == 7) {
+
+			}
+
+			if (VCoordinate != 2 & VCoordinate != 7) {
+
+			}
+
 		};
 
 		if (HCoordinate == "h") {
 
+			if (VCoordinate == 2) {
+
+			}
+
+			if (VCoordinate == 7) {
+
+			}
+
+			if (VCoordinate != 2 & VCoordinate != 7) {
+
+			}
 		};
 
-		if (HCoordinate != "a" && HCoordinate != "h") {
+		if (HCoordinate == "b") {
 
+			if (VCoordinate == 2) {
+
+			}
+
+			if (VCoordinate == 7) {
+
+			}
+
+			if (VCoordinate != 2 & VCoordinate != 7) {
+
+			}
 		};
+
+		if (HCoordinate == "g") {
+			if (VCoordinate == 2) {
+
+			}
+
+			if (VCoordinate == 7) {
+
+			}
+
+			if (VCoordinate != 2 & VCoordinate != 7) {
+
+			}
+		};
+
+		if (GetIndexHCor() > 1 & GetIndexHCor() < 6) {
+			if (VCoordinate == 2) {
+
+			}
+
+			if (VCoordinate == 7) {
+
+			}
+
+			if (VCoordinate != 2 & VCoordinate != 7) {
+
+			}
+		}
 
 	};
 
