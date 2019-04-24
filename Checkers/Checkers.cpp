@@ -49,13 +49,17 @@ int main()
 	for (int i = 1; i < 25; i++) {
 		std::cout << i << " figure is " << ' ' << pChecker[i]->GetColor() << ' ' << pChecker[i]->GetVCor() << pChecker[i]->GetHCor() << '\n';
 	}
+	
+	pChecker[13]->SetHCoordinate("d");
+	pChecker[13]->SetVCoordinate(4);
 
-	pChecker[1]->SetHCoordinate("c");
-	pChecker[1]->SetVCoordinate(5);
+	pChecker[14]->SetHCoordinate("f");
+	pChecker[14]->SetVCoordinate(4);
 
-	std::cout << 1 << " figure is " << ' ' << pChecker[1]->GetColor() << ' ' << pChecker[1]->GetVCor() << pChecker[1]->GetHCor() << '\n';
-
-	pChecker[14]->AvalibleMove();
+	std::cout << 13 << " figure is " << ' ' << pChecker[13]->GetColor() << ' ' << pChecker[13]->GetVCor() << pChecker[13]->GetHCor() << '\n';
+	std::cout << 14 << " figure is " << ' ' << pChecker[14]->GetColor() << ' ' << pChecker[14]->GetVCor() << pChecker[14]->GetHCor() << '\n';
+	
+	pChecker[12]->AvalibleMove();
 
 }
 
