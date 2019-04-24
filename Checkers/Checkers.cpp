@@ -23,8 +23,11 @@ public:
 	int GetIndexHCor() const;
 	int GetVCor() const;
 	bool CellIsOccupied(std::string initalH, int initialV);
+	void AvalibleMove();
+	void SetHCoordinate(std::string initalH);
+	void SetVCoordinate(int initialV);
+
 private:
-	void MoveChecker();
 	std::string HCoordinate;
 	int VCoordinate;
 	std::string Color;
@@ -47,14 +50,26 @@ int main()
 		std::cout << i << " figure is " << ' ' << pChecker[i]->GetColor() << ' ' << pChecker[i]->GetVCor() << pChecker[i]->GetHCor() << '\n';
 	}
 
+	pChecker[1]->SetHCoordinate("c");
+	pChecker[1]->SetVCoordinate(5);
+
+	std::cout << 1 << " figure is " << ' ' << pChecker[1]->GetColor() << ' ' << pChecker[1]->GetVCor() << pChecker[1]->GetHCor() << '\n';
+
+	pChecker[14]->AvalibleMove();
 
 }
 
+void Checker::SetHCoordinate(std::string initalH) {
+	HCoordinate = initalH;
+};
 
-void Checker::MoveChecker() {
+void Checker::SetVCoordinate(int initialV) {
+	VCoordinate = initialV;
+};
+
+void Checker::AvalibleMove() {
 	std::vector<std::string> HorArray;
 	std::vector<int> VerArray;
-
 
 
 	if (VCoordinate == 1) {
@@ -80,11 +95,10 @@ void Checker::MoveChecker() {
 							g += 1;
 						};
 
-						if (g == 0) {
-							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-							VerArray.push_back(VCoordinate + 2);
-						};
-
+					};
+					if (g == 0) {
+						HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+						VerArray.push_back(VCoordinate + 2);
 					};
 				};
 			}
@@ -117,11 +131,10 @@ void Checker::MoveChecker() {
 							g += 1;
 						};
 
-						if (g == 0) {
-							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-							VerArray.push_back(VCoordinate + 2);
-						};
-
+					};
+					if (g == 0) {
+						HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+						VerArray.push_back(VCoordinate + 2);
 					};
 				};
 			}
@@ -172,11 +185,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -227,11 +239,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -267,12 +278,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -304,12 +313,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -328,7 +335,7 @@ void Checker::MoveChecker() {
 		};
 
 	};
-
+	
 	if (VCoordinate == 8) {
 
 		if (HCoordinate == "a") {
@@ -351,12 +358,10 @@ void Checker::MoveChecker() {
 						{
 							g += 1;
 						};
-
-						if (g == 0) {
-							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-							VerArray.push_back(VCoordinate - 2);
-						};
-
+					};
+					if (g == 0) {
+						HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+						VerArray.push_back(VCoordinate - 2);
 					};
 				};
 			}
@@ -389,11 +394,10 @@ void Checker::MoveChecker() {
 							g += 1;
 						};
 
-						if (g == 0) {
-							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-							VerArray.push_back(VCoordinate - 2);
-						};
-
+					};
+					if (g == 0) {
+						HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+						VerArray.push_back(VCoordinate - 2);
 					};
 				};
 			}
@@ -445,11 +449,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -499,12 +502,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -541,11 +542,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -558,7 +558,6 @@ void Checker::MoveChecker() {
 
 				k = 0;
 
-
 				for (int i = 1; i < 25; i++) {
 					if (pChecker[i]->CellIsOccupied(Horizontal[GetIndexHCor() + 1], VCoordinate - 1))
 					{
@@ -566,7 +565,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k != 0) {
 					if (pChecker[temp]->GetColor() != Color) {
@@ -578,15 +576,13 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
@@ -596,14 +592,12 @@ void Checker::MoveChecker() {
 
 			}
 
-
-
 		};
 
 	};
 
 	if (VCoordinate > 1 && VCoordinate < 8) {
-
+		
 		if (HCoordinate == "a") {
 
 			if (VCoordinate == 2) {
@@ -643,11 +637,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -670,7 +663,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
@@ -697,11 +689,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -733,12 +724,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -767,12 +756,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -822,12 +809,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -850,7 +835,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
@@ -876,12 +860,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -913,12 +895,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -947,12 +927,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1034,12 +1012,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1077,7 +1053,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate + 1);
@@ -1092,7 +1067,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
@@ -1119,11 +1093,10 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1145,7 +1118,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
 					VerArray.push_back(VCoordinate + 1);
@@ -1160,7 +1132,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
@@ -1186,12 +1157,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1220,12 +1189,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1234,7 +1201,6 @@ void Checker::MoveChecker() {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate - 1);
 				};
-
 
 			}
 		};
@@ -1252,7 +1218,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate - 1);
@@ -1268,7 +1233,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
 					VerArray.push_back(VCoordinate - 1);
@@ -1283,7 +1247,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
@@ -1309,12 +1272,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1336,7 +1297,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate + 1);
@@ -1352,7 +1312,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate - 1);
@@ -1367,7 +1326,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() - 1]);
@@ -1393,12 +1351,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1420,7 +1376,6 @@ void Checker::MoveChecker() {
 					};
 				};
 
-
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
 					VerArray.push_back(VCoordinate + 1);
@@ -1435,7 +1390,6 @@ void Checker::MoveChecker() {
 						temp = i;
 					};
 				};
-
 
 				if (k == 0) {
 					HorArray.push_back(Horizontal[GetIndexHCor() + 1]);
@@ -1461,12 +1415,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1495,12 +1447,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1510,11 +1460,11 @@ void Checker::MoveChecker() {
 					VerArray.push_back(VCoordinate - 1);
 				};
 
-
 			}
 		};
 
 		if (GetIndexHCor() > 1 & GetIndexHCor() < 6) {
+			
 			if (VCoordinate == 2) {
 				int temp, k = 0;
 
@@ -1566,12 +1516,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1600,12 +1548,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1615,7 +1561,7 @@ void Checker::MoveChecker() {
 					VerArray.push_back(VCoordinate + 1);
 				};
 			}
-
+			
 			if (VCoordinate == 7) {
 				int temp, k = 0;
 
@@ -1667,12 +1613,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1701,12 +1645,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1737,12 +1679,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1771,12 +1711,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate + 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate + 2);
 						};
 					};
 				}
@@ -1806,13 +1744,14 @@ void Checker::MoveChecker() {
 								g += 1;
 							};
 
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
 						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() - 2]);
+							VerArray.push_back(VCoordinate - 2);
+						};
+
 					};
+
 				}
 
 				if (k == 0) {
@@ -1839,12 +1778,10 @@ void Checker::MoveChecker() {
 							{
 								g += 1;
 							};
-
-							if (g == 0) {
-								HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
-								VerArray.push_back(VCoordinate - 2);
-							};
-
+						};
+						if (g == 0) {
+							HorArray.push_back(Horizontal[GetIndexHCor() + 2]);
+							VerArray.push_back(VCoordinate - 2);
 						};
 					};
 				}
@@ -1854,11 +1791,18 @@ void Checker::MoveChecker() {
 					VerArray.push_back(VCoordinate - 1);
 				};
 
-
 			}
 		}
 
 	};
+
+	std::cout << "You have " << HorArray.size() << " variant of moves." << '\n';
+
+	if (HorArray.size() == VerArray.size()) {
+		for (int i = 0; i < HorArray.size(); i++) {
+			std::cout << HorArray[i] << " " << VerArray[i] << std::endl;
+		}
+	}
 
 };
 
