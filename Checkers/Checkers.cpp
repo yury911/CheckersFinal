@@ -23,7 +23,7 @@ public:
 	int GetIndexHCor() const;
 	int GetVCor() const;
 	bool CellIsOccupied(std::string initalH, int initialV);
-	void AvalibleMove();
+	std::vector<std::string> AvalibleMove();
 	void SetHCoordinate(std::string initalH);
 	void SetVCoordinate(int initialV);
 
@@ -42,26 +42,42 @@ void initialBlackFigure();
 
 int main()
 {
+	std::string CurrentHorMove;
+	int CurrentVerMove,CurrentChecker;
+
 	initialWhiteFigure();
 	initialBlackFigure();
 
 	
-	for (int i = 1; i < 25; i++) {
+	for (int i = 1; i < 13; i++) {
 		std::cout << i << " figure is " << ' ' << pChecker[i]->GetColor() << ' ' << pChecker[i]->GetVCor() << pChecker[i]->GetHCor() << '\n';
 	}
-	
-	pChecker[13]->SetHCoordinate("d");
+
 	pChecker[13]->SetVCoordinate(4);
+	pChecker[13]->SetHCoordinate("d");
 
-	pChecker[14]->SetHCoordinate("f");
-	pChecker[14]->SetVCoordinate(4);
+	std::cout << "Choise the Figure ";std::cin >> CurrentChecker;
 
-	std::cout << 13 << " figure is " << ' ' << pChecker[13]->GetColor() << ' ' << pChecker[13]->GetVCor() << pChecker[13]->GetHCor() << '\n';
-	std::cout << 14 << " figure is " << ' ' << pChecker[14]->GetColor() << ' ' << pChecker[14]->GetVCor() << pChecker[14]->GetHCor() << '\n';
-	
-	pChecker[12]->AvalibleMove();
+	if (pChecker[CurrentChecker]->AvalibleMove().size() == 0)
+		std::cout << "You don't have a moves on this checker";
+	else
+	{
+		std::cout << "Your avalible move is ";
+		for (int i = 0; i < pChecker[CurrentChecker]->AvalibleMove().size(); i++) {
+			std::cout << pChecker[CurrentChecker]->AvalibleMove()[i] << " ";
+		}
+		std::cout << "Write your move ";std::cin >> CurrentVerMove >> CurrentHorMove;
+
+		pChecker[CurrentChecker]->SetVCoordinate(CurrentVerMove);
+		pChecker[CurrentChecker]->SetHCoordinate(CurrentHorMove);
+	};
+
+
+	std::cout << CurrentChecker << " figure is " << ' ' << pChecker[CurrentChecker]->GetColor() << ' ' << pChecker[CurrentChecker]->GetVCor() << pChecker[CurrentChecker]->GetHCor() << '\n';
+
 
 }
+
 
 void Checker::SetHCoordinate(std::string initalH) {
 	HCoordinate = initalH;
@@ -71,10 +87,10 @@ void Checker::SetVCoordinate(int initialV) {
 	VCoordinate = initialV;
 };
 
-void Checker::AvalibleMove() {
+std::vector<std::string> Checker::AvalibleMove() {
 	std::vector<std::string> HorArray;
 	std::vector<int> VerArray;
-
+	std::vector<std::string> AvalibeMoves;
 
 	if (VCoordinate == 1) {
 
@@ -1800,13 +1816,19 @@ void Checker::AvalibleMove() {
 
 	};
 
-	std::cout << "You have " << HorArray.size() << " variant of moves." << '\n';
-
 	if (HorArray.size() == VerArray.size()) {
 		for (int i = 0; i < HorArray.size(); i++) {
-			std::cout << HorArray[i] << " " << VerArray[i] << std::endl;
+			AvalibeMoves.push_back(std::to_string(VerArray[i]) + HorArray[i]);
 		}
 	}
+
+	/*
+	for (int i = 0; i < AvalibeMoves.size(); i++) {
+		std::cout << AvalibeMoves[i] << '\n';
+	}
+	*/
+
+	return AvalibeMoves;
 
 };
 

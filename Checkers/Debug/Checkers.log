@@ -1,10 +1,11 @@
 ﻿  Checkers.cpp
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(712): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(883): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1115): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1373): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1471): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1667): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1807): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1821): warning C4715: Checker::GetIndexHCor: значение возвращается не при всех путях выполнения
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(66): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(729): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(900): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1132): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1390): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1488): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1684): warning C4554: "&": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1822): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\yurii chernov\source\repos\checkersfinal\checkersfinal\checkers\checkers.cpp(1844): warning C4715: Checker::GetIndexHCor: значение возвращается не при всех путях выполнения
   Checkers.vcxproj -> C:\Users\Yurii Chernov\source\repos\CheckersFinal\CheckersFinal\Debug\Checkers.exe
